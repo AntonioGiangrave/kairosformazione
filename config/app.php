@@ -27,7 +27,7 @@ return [
       |
      */
 
-    'debug' => true,
+    'debug' =>  env('APP_DEBUG'),
     /*
       |--------------------------------------------------------------------------
       | Application URL
@@ -38,7 +38,7 @@ return [
       | your application so that it is used when running Artisan tasks.
       |
      */
-    'url' => 'http://localhost',
+    'url' => 'http://www.kairosformazione.it',
     /*
       |--------------------------------------------------------------------------
       | Application Timezone
