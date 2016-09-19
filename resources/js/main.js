@@ -27,7 +27,6 @@
 
 	var loaderPage = function() {
 
-		console.log('finito!!');
 		$(".fh5co-loader").fadeOut("slow");
 	};
 

@@ -43,12 +43,12 @@ elixir(function(mix) {
         // 'bower_components/Chart.js/Chart.js',
         'bower_components/metisMenu/dist/metisMenu.js',
         'resources/js/sb-admin-2.js',
-        'resources/js/frontend.js',
+        //'resources/js/frontend.js',
 
         'resources/js/main.js',
         // 'resources/js/modernizr-2.6.2.min.js',
         'resources/js/modernizr.js',
-        'resources/js/owl.carousel.js',
+        'resources/js/owl.carousel.min.js',
         'resources/js/respond.min.js',
         'resources/js/jquery.easing.1.3.js',
 
