@@ -16,7 +16,7 @@ Route::group(array('middleware' => 'auth'), function() {
 
     Route::get('/', function() {
 
-        return View::make('cache.index');
+        return View::make('cache.home');
     });
 
     Route::get('home', function() {
