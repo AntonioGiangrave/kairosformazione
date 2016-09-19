@@ -1,6 +1,48 @@
 @extends('layouts.plane')
 
 @section('body')
+
+    <header id="fh5co-header" role="banner">
+        <div class="container">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+            <div id="fh5co-logo"><a href="index.html"><img src="images/logo.jpg" alt="Free HTML5 Website Template"></a></div>
+            <nav id="fh5co-main-nav" role="navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li class="has-sub">
+                        <div class="drop-down-menu">
+                            <a href="services.html">Services</a>
+                            <div class="dropdown-menu-wrap">
+                                <ul>
+                                    <li><a href="#">Web Development</a></li>
+                                    <li><a href="#">Web Design</a></li>
+                                    <li><a href="#">Graphic Design</a></li>
+                                    <li><a href="#">Branding</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li class="has-sub">
+                        <div class="drop-down-menu">
+                            <a href="#">Sidebars</a>
+                            <div class="dropdown-menu-wrap">
+                                <ul>
+                                    <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                                    <li><a href="left-sidebar.html">Left Sidebar</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cta"><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
     <div id="wrapper">
 
         <!-- Navigation -->

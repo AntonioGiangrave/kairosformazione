@@ -15,23 +15,8 @@ Route::group(array('middleware' => 'auth'), function() {
 
 
     Route::get('/', function() {
-        $today = \Carbon\Carbon::today();
-        $tomorrow = \Carbon\Carbon::tomorrow();
 
-        $data['assenze'] = \App\calendario::where('type', '>' , 0)
-            ->where('giorno' ,'>',$today)
-            ->where('giorno' ,'<',$tomorrow)
-            ->where('approvato' , 1)
-            ->get();
-
-        $data['assenze_domani'] = \App\calendario::where('type', '>' , 0)
-            ->where('giorno' ,'>',$tomorrow)
-            ->where('approvato' , 1)
-            ->get();
-
-        $data['ultime_commesse'] = \App\commesse::take(10)->orderBy('created_at', 'desc')->get();
-
-        return View::make('home')->with($data);
+        return View::make('cache.index');
     });
 
     Route::get('home', function() {
