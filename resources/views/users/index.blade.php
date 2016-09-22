@@ -1,9 +1,7 @@
-@extends('layouts.dashboard')
-@section('page_heading','Dipendenti')
+@extends('cache.index')
 
-
-@section('section')
-
+@section('page_heading','Utenti')
+@section('body')
 
 <div class="row">
     <div class="col-sm-12">
@@ -21,7 +19,7 @@
             </thead> 
             <tbody>
 
-            <?php $canedit = Auth::user()->hasAnyGroups('Admin'); ?>
+            <?php $canedit = Auth::user()->hasAnyGroups('admin'); ?>
 
                 @foreach($data as $dip) 
 
@@ -29,10 +27,10 @@
                     <td>{{ $dip->cognome }}</td>
                     <td>{{ $dip->nome }}</td>
                     <td>{{ $dip->email }}</td>
-                    <td>{{ $dip->societa->societa }}</td>
+                    <td>{{ $dip->societa->ragione_sociale }}</td>
                     <td>
                         @if($canedit)
-                            <a class="btn btn-warning" href="users/{{$dip->id}}/edit">modifica</a>
+                            <a class="btn btn-warning btn-xs" href="users/{{$dip->id}}/edit">modifica</a>
                         @endif
                     </td>
                 </tr>  

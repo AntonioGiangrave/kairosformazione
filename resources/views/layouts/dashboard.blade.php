@@ -55,8 +55,8 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <img class="navbar-brand" src="/assets/img/logo.png">
-                <a class="navbar-brand" href="{{ url ('') }}">Gallerygroup Admin Panel</a>
+                <img class="navbar-brand" src="/images/logo.jpg">
+                <a class="navbar-brand" href="{{ url ('') }}">Kairosformazione</a>
             </div>
             <!-- /.navbar-header -->
 

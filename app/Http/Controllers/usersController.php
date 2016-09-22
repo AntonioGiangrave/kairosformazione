@@ -17,15 +17,18 @@ class usersController extends Controller {
     //
     public function index() {
 
-        $data = User::with('societa')->where('bloccato', 0)->orderBy('cognome')->get();
+        $data = User::with('societa')
+            ->with('user_profiles')
+            ->where('bloccato', 0)
+            ->orderBy('cognome')->get();
         return view('users.index', compact('data'));
     }
 
     public function edit($id) {
 
-        $data['datiRecuperati'] = User::find($id);
+        $data['datiRecuperati'] = User::with('user_profiles')->find($id);
 
-        $data['societa'] = Societa::lists('societa', 'id');
+        $data['societa'] = Societa::lists('ragione_sociale', 'id');
 
         $data['leader'] = User::whereHas('groups', function($q)
         {

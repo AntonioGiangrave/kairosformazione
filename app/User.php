@@ -41,6 +41,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
 
+    public function user_profiles() {
+
+        return $this->belongsTo('App\user_profiles' , 'id' , 'id');
+    }
+
+
     public function groups()
     {
         return $this->belongsToMany('\App\Usergroups' , 'user_group' , 'user_id', 'group_id' );

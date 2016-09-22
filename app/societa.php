@@ -18,7 +18,7 @@ class societa extends Model {
     
      public function user()
     {
-        return $this->hasMany('App\user');
+        return $this->hasMany('App\User');
     }
     
     

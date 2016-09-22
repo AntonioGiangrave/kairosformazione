@@ -1,4 +1,6 @@
 @extends('cache.index')
+
+
 @section('body')
 
 
@@ -6,8 +8,8 @@
     <div class="fh5co-slider">
         <div class="container">
             <div class="owl-carousel owl-carousel-main">
-                <div><img src="images/img_01.png" alt="Free HTML5 Website Template"></div>
-                <div><img src="images/img_02.png" alt="Free HTML5 Website Template"></div>
+                <div><img src="images/img_01.jpg" alt="Kairos"></div>
+                <div><img src="images/img_02.jpg" alt="Kairos"></div>
             </div>
         </div>
     </div>

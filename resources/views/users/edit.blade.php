@@ -1,7 +1,7 @@
-@extends('layouts.dashboard')
-@section('page_heading','Dipendenti')
+@extends('cache.index')
 
-@section('section')
+@section('page_heading','Utenti')
+@section('body')
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
@@ -91,13 +91,6 @@
         </div>
 
 
-
-
-
-
-
-
-
         <div class="pull-right">
             {{ Form::submit('aggiorna', ['class' => 'btn btn-success']) }}
 
@@ -110,7 +103,38 @@
             {{ Form::submit('Cancella', ['class' => 'btn btn-danger']) }}
             {{ Form::close() }}
         </div>
-    </div>
+
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+
+
+                <div class="form-group">
+                    {{ Form::label('data_nascita', 'Data di nascita:') }}
+                    {{ Form::text('data_nascita', null, ['class' => 'form-control']) }}
+                </div>
+
+                <div class="form-group">
+                    {{ Form::label('citta_nascita', 'Città di nascita:') }}
+                    {{ Form::text('citta_nascita', null, ['class' => 'form-control']) }}
+                </div>
+
+                <div class="form-group">
+                    {{ Form::label('sesso', 'Sesso:') }}
+                    {{ Form::select('sesso', array(['F', 'M']),null ,['class' => 'form-control' ]) }}
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
 
 
 @stop

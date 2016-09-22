@@ -45,37 +45,50 @@
 		<header id="fh5co-header" role="banner">
 			<div class="container">
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-				<div id="fh5co-logo"><a href="index.html"><img src="images/logo.png" alt="Logo Kairos"></a></div>
+				<div id="fh5co-logo"><a href="index.html"><img src="/images/logo.png" alt="Logo Kairos"></a></div>
 				<nav id="fh5co-main-nav" role="navigation">
 					<ul>
-						<li><a href="about.html">About</a></li>
+						<li><a href="/">Home</a></li>
 						<li class="has-sub">
 							<div class="drop-down-menu">
-								<a href="services.html">Services</a>
+								<a href="services.html">Strumenti</a>
 								<div class="dropdown-menu-wrap">
 									<ul>
-										<li><a href="#">Web Development</a></li>
-										<li><a href="#">Web Design</a></li>
-										<li><a href="#">Graphic Design</a></li>
-										<li><a href="#">Branding</a></li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li><a href="portfolio.html">Portfolio</a></li>
-						<li class="has-sub">
-							<div class="drop-down-menu">
-								<a href="#">Sidebars</a>
-								<div class="dropdown-menu-wrap">
-									<ul>
-										<li><a href="right-sidebar.html">Right Sidebar</a></li>
-										<li><a href="left-sidebar.html">Left Sidebar</a></li>
+										<li><a href="/users">Utenti</a></li>
+
+										<li><a href="#">Aziende</a></li>
+
+										<li><a href="/users/{{ Auth::user()->id }}/edit">Il mio profilo</a></li>
+
 
 									</ul>
 								</div>
 							</div>
 						</li>
-						<li class="cta"><a href="contact.html">Contact</a></li>
+
+						<ul class="nav navbar-top-links navbar-right">
+
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+									<i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
+								</a>
+
+								@if( Auth::check() )
+
+									<ul class="dropdown-menu dropdown-user">
+										<li><a href="users/{{ Auth::user()->id }}/edit"><i class="fa fa-user fa-fw"></i> User Profile</a>
+										</li>
+
+										<li class="divider"></li>
+										<li><a href="{{ url ('logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout </a></li>
+									</ul>
+									@endif
+											<!-- /.dropdown-user -->
+							</li>
+							<!-- /.dropdown -->
+						</ul>
+
+
 					</ul>
 				</nav>
 			</div>
@@ -83,8 +96,26 @@
 		<!-- Header -->
 
 
-		@yield('body')
 
+
+
+		<div class="row">
+			<div class="col-sm-12">
+
+				<h1 class="page-header">@yield('page_heading')
+					<div class="pull-right">@yield('action_button')</div>
+				</h1>
+
+			</div>
+		</div>
+
+
+		<div class="row bodygg">
+			<div class="col-sm-12">
+				@yield('body')
+
+			</div>
+		</div>
 
 
 		<footer id="fh5co-footer" role="contentinfo">

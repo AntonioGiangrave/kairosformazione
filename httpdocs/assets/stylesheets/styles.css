@@ -9119,7 +9119,9 @@ canvas.round {
     margin:10px;
 }
 
-
+.bodygg {
+    min-height: 400px;
+}
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -14081,6 +14083,11 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.5s;
   padding: 8px 20px !important;
 }
+
+
+.btn.btn-xs {
+  padding: 0px 15px !important;
+}
 .btn.btn-sm {
   padding: 4px 15px !important;
 }
@@ -14240,8 +14247,8 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: none;
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  height: 54px;
-  font-size: 18px;
+  height: 35px;
+  font-size: 17px;
   font-weight: 300;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -14750,6 +14757,9 @@ h1, h2, h3, h4, h5, h6 {
   clear: both;
   borde-top: 1px solid #ccc;
   line-height: 1.5;
+  background: lightgrey;
+  padding-top: 10px;
+
 }
 #fh5co-footer h3 {
   font-size: 20px;
