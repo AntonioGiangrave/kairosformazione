@@ -30,13 +30,19 @@ class usersController extends Controller {
 
         $data['societa'] = Societa::lists('ragione_sociale', 'id');
 
-        $data['leader'] = User::whereHas('groups', function($q)
-        {
-            $q->where('group_id','=' , 3); //gruppo tutor
-        })->lists('nome', 'id');
-
         $usergroups = new Usergroups();
         $data['usergroups'] = $usergroups->getTree();
+
+        /******************************************************************
+        DA COMPLETARE !!!!!!
+        ******************************************************************/
+        $data['status'] = array(
+            1 => 'Disoccupato' ,
+            2 => 'Occupato Senza datore',
+            3 => 'Occupato tempo determinato'
+        );
+
+        $data['ordini_professionali'] = \App\ordini_professionali::lists('nome' , 'id');
 
         return view('users.edit', $data);
 

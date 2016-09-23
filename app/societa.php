@@ -20,6 +20,12 @@ class societa extends Model {
     {
         return $this->hasMany('App\User');
     }
+
+
+    public function ateco()
+    {
+        return $this->belongsTo('App\ateco');
+    }
     
     
 }

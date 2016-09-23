@@ -20,24 +20,27 @@ Route::group(array('middleware' => 'auth'), function() {
     });
 
     Route::resource('users', 'usersController');
-    Route::resource('commesse', 'commesseController');
-    Route::get('userPerCommessa', 'commesseController@userPerCommessa');
+    Route::resource('societa', 'societaController');
 
-
-
-
-    Route::resource('calendario', 'calendarioController');
-    Route::resource('calendario.destroy', 'calendarioController@destroy');
-
-
-    Route::resource('calendar', 'calendarioController@calendar');
-    Route::resource('feriepermessi', 'calendarioController@feriepermessi');
-    Route::resource('approvazione', 'calendarioController@approvazione');
-    Route::resource('rilevazione', 'calendarioController@rilevazione');
-    Route::resource('do_rileva', 'calendarioController@do_rileva');
-
-    Route::resource('google', 'googleController');
-
+//
+//    Route::resource('commesse', 'commesseController');
+//    Route::get('userPerCommessa', 'commesseController@userPerCommessa');
+//
+//
+//
+//
+//    Route::resource('calendario', 'calendarioController');
+//    Route::resource('calendario.destroy', 'calendarioController@destroy');
+//
+//
+//    Route::resource('calendar', 'calendarioController@calendar');
+//    Route::resource('feriepermessi', 'calendarioController@feriepermessi');
+//    Route::resource('approvazione', 'calendarioController@approvazione');
+//    Route::resource('rilevazione', 'calendarioController@rilevazione');
+//    Route::resource('do_rileva', 'calendarioController@do_rileva');
+//
+//    Route::resource('google', 'googleController');
+//
 
 
 

@@ -45,7 +45,7 @@
 		<header id="fh5co-header" role="banner">
 			<div class="container">
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-				<div id="fh5co-logo"><a href="index.html"><img src="/images/logo.png" alt="Logo Kairos"></a></div>
+				<div id="fh5co-logo"><a href="/"><img src="/images/logo.png" alt="Logo Kairos"></a></div>
 				<nav id="fh5co-main-nav" role="navigation">
 					<ul>
 						<li><a href="/">Home</a></li>
@@ -56,7 +56,7 @@
 									<ul>
 										<li><a href="/users">Utenti</a></li>
 
-										<li><a href="#">Aziende</a></li>
+										<li><a href="/societa">Aziende</a></li>
 
 										<li><a href="/users/{{ Auth::user()->id }}/edit">Il mio profilo</a></li>
 
