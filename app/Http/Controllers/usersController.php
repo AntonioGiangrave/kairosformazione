@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use DebugBar\DebugBar;
-use Illuminate\Http\Request;
+use App\societa;
 use App\User;
 use App\Usergroups;
-use \App\societa;
-
-
+use Illuminate\Http\Request;
 
 class usersController extends Controller {
 
@@ -26,7 +22,7 @@ class usersController extends Controller {
 
     public function edit($id) {
 
-        $data['datiRecuperati'] = User::with('user_profiles')->find($id);
+        $data['datiRecuperati'] = User::with('user_profiles' , '_albi_professionali' , '_incarichi_sicurezza' , '_mansioni')->find($id);
 
         $data['societa'] = Societa::lists('ragione_sociale', 'id');
 
@@ -42,7 +38,11 @@ class usersController extends Controller {
             3 => 'Occupato tempo determinato'
         );
 
-        $data['ordini_professionali'] = \App\ordini_professionali::lists('nome' , 'id');
+        $data['lista_albi'] =   \App\albi_professionali::lists('nome' , 'id');
+        $data['lista_incarichi_sicurezza'] =  \App\incarichi_sicurezza::lists('nome' , 'id');
+
+        $data['lista_mansioni'] =  \App\mansioni::where('settore_id' , $data['datiRecuperati']->societa->settore_id)->lists('nome' , 'id');
+
 
         return view('users.edit', $data);
 
@@ -69,15 +69,13 @@ class usersController extends Controller {
 
         $user->save();
 
-        \Debugbar::info($request->input('groups'));
+        $user->groups()->sync($request->get('groups'));
 
+        $user->_albi_professionali()->sync($request->get('albi_professionali'));
 
-        if($request->input('groups')) {
-            $user->groups()->detach();
-            foreach ($request->input('groups') as $group) {
-                $user->groups()->attach(Usergroups::where('id', $group)->first());
-            }
-        }
+        $user->_incarichi_sicurezza()->sync($request->get('incarichi_sicurezza'));
+
+        $user->_mansioni()->sync($request->get('mansioni'));
 
         return redirect('users')->with('ok_message', 'La tua rubrica è stata aggiornata');
     }

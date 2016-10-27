@@ -4,20 +4,6 @@
 
 @section('section')
 
-
-    @if(count($errors->all()) > 0)
-        <div class="alert alert-danger" role="alert">
-            <p><b>OOOPS!</b></p>
-            <ul>
-                @foreach($errors->all() as $e)
-                    <li>{{$e}}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-
-
     <div class="row">
         <div class="col-sm-8">
             <table class="table table-striped table-condensed">

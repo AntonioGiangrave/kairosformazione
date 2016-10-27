@@ -26,6 +26,12 @@ class societa extends Model {
     {
         return $this->belongsTo('App\ateco');
     }
-    
-    
+
+    public function _settori()
+    {
+        return $this->belongsTo('App\settori');
+    }
+
+  
+
 }

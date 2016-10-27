@@ -11731,7 +11731,7 @@ $(function() {
 });
 
 ;(function () {
-	
+
 	'use strict';
 
 	// iPad and iPod detection	
@@ -11740,20 +11740,20 @@ $(function() {
 	};
 
 	var isiPhone = function(){
-	    return (
-			(navigator.platform.indexOf("iPhone") != -1) || 
+		return (
+			(navigator.platform.indexOf("iPhone") != -1) ||
 			(navigator.platform.indexOf("iPod") != -1)
-	    );
+		);
 	};
 
 	var dropDownMenu = function() {
-		
-	 	$(".drop-down-menu").hover(function(){
-         $(this).addClass('active');
-    	},
-    	function(){
-        	$(this).removeClass('active');
-    	});
+
+		$(".drop-down-menu").hover(function(){
+				$(this).addClass('active');
+			},
+			function(){
+				$(this).removeClass('active');
+			});
 
 	};
 
@@ -11765,13 +11765,13 @@ $(function() {
 	var goToTop = function() {
 
 		$('.js-gotop').on('click', function(event){
-			
+
 			event.preventDefault();
 
 			$('html, body').animate({
 				scrollTop: $('html').offset().top
 			}, 500, 'easeInOutExpo');
-			
+
 			return false;
 		});
 
@@ -11785,7 +11785,7 @@ $(function() {
 			}
 
 		});
-	
+
 	};
 
 
@@ -11804,14 +11804,14 @@ $(function() {
 			smartSpeed: 500,
 			autoplay: true,
 			autoplayHoverPause: true,
-			navText: [	
+			navText: [
 				"<i class='icon-chevron-left owl-direction'></i>",
 				"<i class='icon-chevron-right owl-direction'></i>"
 			]
 		});
 
 		$(window).resize(function(){
-			 owl.trigger('refresh.owl.carousel');
+			owl.trigger('refresh.owl.carousel');
 		});
 	};
 
@@ -11843,23 +11843,28 @@ $(function() {
 		$(window).resize(function() {
 			$('#fh5co-offcanvas').css('height', $(window).height());
 			if ( $('body').hasClass('offcanvas-visible') ) {
-		   	$('body').removeClass('offcanvas-visible');
-		   	$('.js-fh5co-nav-toggle').removeClass('active');
-		   }
+				$('body').removeClass('offcanvas-visible');
+				$('.js-fh5co-nav-toggle').removeClass('active');
+			}
 		});
 
 		$(window).scroll(function(){
 			if ( $('body').hasClass('offcanvas-visible') ) {
-		   	$('body').removeClass('offcanvas-visible');
-		   	$('.js-fh5co-nav-toggle').removeClass('active');
-		   }
+				$('body').removeClass('offcanvas-visible');
+				$('.js-fh5co-nav-toggle').removeClass('active');
+			}
 		});
 
 	};
 
-	
 
-	
+
+
+	$('.alert-success').delay(5000).fadeOut('slow');
+
+
+
+
 	// Document on load.
 	$(function(){
 

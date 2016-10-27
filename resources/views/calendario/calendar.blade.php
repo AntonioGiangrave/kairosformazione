@@ -12,22 +12,6 @@
 
 @section('section')
 
-
-    @if(count($errors->all()) > 0)
-        <div class="alert alert-danger" role="alert">  <p><b>OOOPS!</b></p>
-            <ul>
-                @foreach($errors->all() as $e)
-                    <li>{{$e}}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-
-
-
-
-
     <div id="calendario" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
         @foreach($settimana as $nome => $giorno)

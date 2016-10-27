@@ -13,6 +13,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     use Authenticatable,
         CanResetPassword;
 
+
+//    public function __construct(array $attributes = array())
+//    {
+//        parent::__construct($attributes);
+//
+//        $this->gruppi = \App\Usergroups::where('user_id',  $this->id)->get();
+//    }
+//
+//    public $gruppi = [];
+
+
     /**
      * The database table used by the model.
      *
@@ -57,6 +68,26 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->belongsToMany('\App\commesse' , 'cm_calendario', 'dipendenti_id' , 'commessa_id');
     }
+
+
+    public function _albi_professionali()
+    {
+        return $this->belongsToMany('App\albi_professionali' , 'albi_professionali_map' ,  'user_id', 'albo_id' );
+    }
+
+
+    public function _incarichi_sicurezza()
+    {
+        return $this->belongsToMany('App\incarichi_sicurezza' , 'incarichi_sicurezza_map' ,  'user_id', 'incarico_id' );
+    }
+
+    public function _mansioni()
+    {
+        return $this->belongsToMany('App\incarichi_sicurezza' , 'mansioni_map' ,  'user_id', 'mansione_id' );
+    }
+
+
+
 
 
 

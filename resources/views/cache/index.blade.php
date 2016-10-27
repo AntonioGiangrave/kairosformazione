@@ -51,7 +51,7 @@
 						<li><a href="/">Home</a></li>
 						<li class="has-sub">
 							<div class="drop-down-menu">
-								<a href="services.html">Strumenti</a>
+								<a href="#">Strumenti</a>
 								<div class="dropdown-menu-wrap">
 									<ul>
 										<li><a href="/users">Utenti</a></li>
@@ -99,19 +99,37 @@
 
 
 
-		<div class="row">
-			<div class="col-sm-12">
 
-				<h1 class="page-header">@yield('page_heading')
-					<div class="pull-right">@yield('action_button')</div>
-				</h1>
+		<div class="col-sm-12">
 
-			</div>
+			<h1 class="page-header">@yield('page_heading')</h1>
+			<div class="pull-right">@yield('action_button')</div>
+
+
 		</div>
+
 
 
 		<div class="row bodygg">
 			<div class="col-sm-12">
+
+				@if(count($errors->all()) > 0)
+					<div class="alert alert-danger" role="alert">
+						<p><b>OOOPS!</b></p>
+						<ul>
+							@foreach($errors->all() as $e)
+								<li>{{$e}}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
+
+				@if (session('ok_message'))
+					<div class="alert alert-success">
+						{{ session('ok_message') }}
+					</div>
+				@endif
+
 				@yield('body')
 
 			</div>

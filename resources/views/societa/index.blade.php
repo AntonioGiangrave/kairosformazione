@@ -1,6 +1,6 @@
 @extends('cache.index')
 
-@section('page_heading','Societa')
+@section('page_heading','Elenco societa')
 @section('body')
 
 <div class="row">
@@ -28,10 +28,11 @@
                     <td>{{ $single->ragione_sociale }}</td>
                     <td>{{ $single->piva }}</td>
                     <td>{{ $single->email }}</td>
-                    <td>{{ $single->ateco->codice}}</td>
+                    <td>{{ $single->ateco->codice }}</td>
+                    <td></td>
                     <td>
                         @if($canedit)
-                            <a class="btn btn-warning btn-xs "  disabled="disabled" href="users/{{$single->id}}/edit">modifica</a>
+                            <a class="btn btn-warning btn-xs "   href="/societa/{{$single->id}}/edit">modifica</a>
 
                         @endif
                     </td>

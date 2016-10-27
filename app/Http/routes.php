@@ -13,7 +13,6 @@
 
 Route::group(array('middleware' => 'auth'), function() {
 
-
     Route::get('/', function() {
 
         return View::make('cache.home');

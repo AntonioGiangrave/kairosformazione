@@ -8,4 +8,6 @@ class user_profiles extends Model
 {
     protected $table = 'user_profiles';
 
+    
+
 }
