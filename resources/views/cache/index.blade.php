@@ -7,9 +7,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Kairos Formazione</title>
+	<title>Tanit Formazione</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Kairos formazione" />
+	<meta name="description" content="TANIT" />
 	<meta name="keywords" content="formazione job" />
 	<meta name="author" content="GGallery" />
 
@@ -49,22 +49,30 @@
 				<nav id="fh5co-main-nav" role="navigation">
 					<ul>
 						<li><a href="/">Home</a></li>
+						<li><a href="/users">Utenti</a></li>
+
+						<li><a href="/societa">Aziende</a></li>
+
+						<li><a href="/corsi">Corsi</a></li>
+
+						<li><a href="/mansioni">Mansioni</a></li>
+
+
+
+
+						<!--
 						<li class="has-sub">
 							<div class="drop-down-menu">
 								<a href="#">Strumenti</a>
 								<div class="dropdown-menu-wrap">
 									<ul>
-										<li><a href="/users">Utenti</a></li>
-
 										<li><a href="/societa">Aziende</a></li>
-
-										<li><a href="/users/{{ Auth::user()->id }}/edit">Il mio profilo</a></li>
-
-
 									</ul>
 								</div>
 							</div>
 						</li>
+
+						-->
 
 						<ul class="nav navbar-top-links navbar-right">
 
@@ -192,6 +200,8 @@
 </div>
 
 <script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
+
+
 
 
 </body>

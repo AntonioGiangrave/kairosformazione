@@ -6,3 +6,8 @@
 .bodygg {
     min-height: 400px;
 }
+
+.nav > li > a
+{
+    display: inline !important;
+}

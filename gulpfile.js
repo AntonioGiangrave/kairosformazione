@@ -53,6 +53,7 @@ elixir(function(mix) {
         'resources/js/jquery.easing.1.3.js',
 
 
+
          // 'resources/js/bootstrap.js',
 
 

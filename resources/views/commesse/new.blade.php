@@ -7,13 +7,7 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-
-
-
-
-        {{ Form::open(
-        [  'url' =>'commesse/'])
-        }}
+        {{ Form::open(['url' =>'commesse/'])}}
 
         <div class="row">
 

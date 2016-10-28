@@ -20,6 +20,8 @@ Route::group(array('middleware' => 'auth'), function() {
 
     Route::resource('users', 'usersController');
     Route::resource('societa', 'societaController');
+    Route::resource('corsi', 'corsiController');
+    Route::resource('mansioni', 'mansioniController');
 
 //
 //    Route::resource('commesse', 'commesseController');

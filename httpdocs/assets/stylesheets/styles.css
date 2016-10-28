@@ -9122,6 +9122,11 @@ canvas.round {
 .bodygg {
     min-height: 400px;
 }
+
+.nav > li > a
+{
+    display: inline !important;
+}
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
