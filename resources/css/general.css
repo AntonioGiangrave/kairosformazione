@@ -5,9 +5,36 @@
 
 .bodygg {
     min-height: 400px;
+    margin: 0 15px;
 }
 
 .nav > li > a
 {
     display: inline !important;
+}
+
+.list-group-item
+{
+    padding: 1px 10px !important;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+
+    padding: 2px 9px;
+    vertical-align: middle;
+
+}
+
+.progress {
+    margin-bottom: 0px !important;
+}
+
+.progress-tall {
+    height: 80px !important;
+}
+
+
+
+.progress-bar {
+    color: black !important;
 }

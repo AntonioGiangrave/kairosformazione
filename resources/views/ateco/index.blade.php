@@ -1,17 +1,17 @@
 @extends('cache.index')
 
-@section('page_heading','Elenco Mansioni')
+@section('page_heading','Ateco')
 @section('body')
 
     <div class="row">
         <div class="col-sm-12">
 
 
-            <table class="table table-striped">
+            <table class="table table-striped ">
 
                 <thead>  <tr>
-                    <th>Nome</th>
-                    <th>Settore</th>
+                    <th>Codice</th>
+                    <th>Descrizione</th>
                     <th> </th>
                 </tr>
                 </thead>
@@ -19,14 +19,14 @@
 
                 <?php $canedit = Auth::user()->hasAnyGroups('admin'); ?>
 
-                @foreach($mansioni as $single)
+                @foreach($ateco as $single)
 
                     <tr>
-                        <td>{{ $single->nome}}</td>
-                        <td>{{ $single->_settore['settore']}}</td>
+                        <td>{{ $single->codice}}</td>
+                        <td>{{ $single->descrizione}}</td>
                         <td>
                             @if($canedit)
-                                <a class="btn btn-warning btn-xs "   href="/mansioni/{{$single->id}}/edit">modifica</a>
+                                <a class="btn btn-warning btn-xs "   href="/ateco/{{$single->id}}/edit">modifica</a>
 
                             @endif
                         </td>

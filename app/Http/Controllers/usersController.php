@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\societa;
 use App\User;
 use App\Usergroups;
+use App\registro_formazione;
 use Illuminate\Http\Request;
 
 class usersController extends Controller {
@@ -38,13 +39,28 @@ class usersController extends Controller {
             3 => 'Occupato tempo determinato'
         );
 
-        $data['lista_albi'] =   \App\albi_professionali::lists('nome' , 'id');
-        $data['lista_incarichi_sicurezza'] =  \App\incarichi_sicurezza::lists('nome' , 'id');
+        $data['lista_albi'] =   \App\albi_professionali::orderBy('nome')->lists('nome' , 'id');
+        $data['lista_incarichi_sicurezza'] =  \App\incarichi_sicurezza::orderBy('nome')->lists('nome' , 'id');
+        $data['lista_mansioni'] =  \App\mansioni::orderBy('nome')->lists('nome' , 'id');
 
-        $data['lista_mansioni'] =  \App\mansioni::where('settore_id' , $data['datiRecuperati']->societa->settore_id)->lists('nome' , 'id');
 
 
         return view('users.edit', $data);
+
+    }
+
+    public function formazione($id){
+
+        $data['datiRecuperati'] = User::with('_registro_formazione')->find($id);
+
+        $data['totaleFormazione']=$data['datiRecuperati']->_registro_formazione->count();
+
+        $data['avanzamentoFormazione']=$data['datiRecuperati']->_avanzamento_formazione()->count();
+        $data['avanzamentoSicurezza']=$data['datiRecuperati']->_get_tot_avanzamento_formazione_sicurezza();
+        $data['avanzamentoRuolo']=$data['datiRecuperati']->_get_tot_avanzamento_formazione_ruolo();
+
+
+        return view('users.formazione', $data);
 
     }
 
@@ -71,13 +87,18 @@ class usersController extends Controller {
 
         $user->groups()->sync($request->get('groups'));
 
-        $user->_albi_professionali()->sync($request->get('albi_professionali'));
+        $user->_albi_professionali()->sync( (array) $request->get('_albi_professionali'));
 
-        $user->_incarichi_sicurezza()->sync($request->get('incarichi_sicurezza'));
+        $user->_incarichi_sicurezza()->sync( (array) $request->get('_incarichi_sicurezza'));
 
-        $user->_mansioni()->sync($request->get('mansioni'));
+        $user->_mansioni()->sync( (array) $request->get('_mansioni'));
+
+        $allinea = new registro_formazione();
+        $allinea->sync_utente($id);
 
         return redirect('users')->with('ok_message', 'La tua rubrica è stata aggiornata');
     }
+
+
 
 }

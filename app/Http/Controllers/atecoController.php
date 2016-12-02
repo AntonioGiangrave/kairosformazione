@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class mansioniController extends Controller
+class atecoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class mansioniController extends Controller
      */
     public function index()
     {
-        $data['mansioni'] = \App\mansioni::with('_settore')->orderBy('nome')->get();
+        $data['ateco'] = \App\ateco::orderBy('codice')->get();
 
-        return view('mansioni.index', $data);
+        return view('ateco.index', $data);
     }
 
     /**
@@ -38,22 +38,7 @@ class mansioniController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nome' => 'required'
-
-        ], [
-            'nome.required' => 'Il nome è obbligatorio'
-        ]);
-
-        $data = new \App\mansioni;
-        $data->nome= $request->input('titolo');
-        $data->settore_id = $request->input('settore_id');
-
-        $data->save();
-
-        $data->_corsi()->sync( (array) $request->get('_corsi'));
-
-        return redirect('mansioni/')->with('ok_message', 'Dati inseriti');
+        //
     }
 
     /**
@@ -75,10 +60,10 @@ class mansioniController extends Controller
      */
     public function edit($id)
     {
-        $data['datiRecuperati'] = \App\mansioni::with('_corsi', '_settore')->find($id);
-        $data['lista_corsi'] = \App\corsi::where('tipo','R')->orderBy('titolo')->lists('titolo' , 'id');
-        $data['lista_settori'] = \App\settori::lists('settore' , 'id');
-        return view('mansioni.edit', $data);
+        $data['datiRecuperati'] = \App\ateco::with('_corsi')->find($id);
+        $data['lista_corsi'] = \App\corsi::where('tipo', 'S')->orderBy('titolo')->lists('titolo' , 'id');
+
+        return view('ateco.edit', $data);
     }
 
     /**
@@ -91,15 +76,17 @@ class mansioniController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'nome' => 'required'
+            'codice' => 'required',
+            'descrizione' => 'required'
 
         ], [
-            'nome.required' => 'Il nome è obbligatorio'
+            'codice.required' => 'Il codice è obbligatorio',
+            'descrizione.required' => 'La descrizione è obbligatoria'
         ]);
 
-        $data = \App\mansioni::find($id);
-        $data->nome= $request->input('nome');
-        $data->settore_id = $request->input('settore_id');
+        $data = \App\ateco::find($id);
+        $data->codice= $request->input('codice');
+        $data->descrizione = $request->input('descrizione');
 
         $data->save();
 
@@ -109,7 +96,7 @@ class mansioniController extends Controller
         $data->_corsi()->sync( (array) $request->get('_corsi'));
 
 
-        return redirect('mansioni/')->with('ok_message', 'Dati inseriti');
+        return redirect('ateco/')->with('ok_message', 'Dati aggiornati');
     }
 
     /**

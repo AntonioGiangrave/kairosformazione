@@ -30,7 +30,8 @@
                     <td>{{ $dip->societa->ragione_sociale }}</td>
                     <td>
                         @if($canedit)
-                            <a class="btn btn-warning btn-xs" href="users/{{$dip->id}}/edit">modifica</a>
+                            <a class="btn btn-warning btn-xs" href="users/{{$dip->id}}/edit" title="modfica"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-warning btn-xs" href="usersformazione/{{$dip->id}}" title="formazione"><i class="fa fa-mortar-board"></i></a>
                         @endif
                     </td>
                 </tr>  

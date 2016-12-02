@@ -8,7 +8,7 @@
 
 
             <div class="push-right">
-                <a class="btn btn-warning btn-xs "   href="/corsi/create">Nuovo corso</a>
+                <a class="btn btn-warning btn-xs "   href="/corsi/create"><i class="fa fa-plus-square fa-2x"></i> Nuovo corso</a>
             </div>
 
 

@@ -57,6 +57,8 @@
 
 						<li><a href="/mansioni">Mansioni</a></li>
 
+						<li><a href="/ateco">Ateco</a></li>
+
 
 
 
@@ -110,7 +112,7 @@
 
 		<div class="col-sm-12">
 
-			<h1 class="page-header">@yield('page_heading')</h1>
+			<h2 class="page-header">@yield('page_heading')</h2>
 			<div class="pull-right">@yield('action_button')</div>
 
 

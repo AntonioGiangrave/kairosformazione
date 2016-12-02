@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use DB;
 
 class corsiController extends Controller
 {
@@ -15,7 +16,7 @@ class corsiController extends Controller
      */
     public function index()
     {
-        $data['corsi'] = \App\corsi::with('proprietario')->get();
+        $data['corsi'] = \App\corsi::orderBy('titolo')->with('proprietario')->get();
 
         return view('corsi.index', $data);
     }
@@ -135,5 +136,30 @@ class corsiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function loadCorsi(){
+
+        $items = DB::table('_trasposter')->get();
+        $table = 'ateco_corsi_map';
+        $campo1 = 'ateco_id';
+        $campo2 = 'corso_id';
+
+        foreach ($items as $corsi)
+        {
+            $corsi = (array)$corsi;
+            $id = array_shift($corsi);
+            echo "<pre>";
+            foreach ($corsi as $corso){
+                if((int)$corso && (int)$id) {
+                    DB::insert('INSERT IGNORE INTO ' . $table . ' ( '.$campo1.' , '.$campo2.') values (' . $id . '  , ' . $corso . ')');
+                    echo "+";
+                }
+                else
+                    echo "-";
+            }
+            echo "</pre>";
+        }
+
     }
 }

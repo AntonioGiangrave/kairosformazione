@@ -19,9 +19,21 @@ Route::group(array('middleware' => 'auth'), function() {
     });
 
     Route::resource('users', 'usersController');
+    Route::resource('usersformazione', 'usersController@formazione');
+
     Route::resource('societa', 'societaController');
     Route::resource('corsi', 'corsiController');
     Route::resource('mansioni', 'mansioniController');
+    Route::resource('ateco', 'atecoController');
+    Route::resource('registro_formazione', 'registro_formazioneController');
+
+
+
+
+    
+    Route::resource('loadcorsi', 'corsiController@loadCorsi');
+    
+    
 
 //
 //    Route::resource('commesse', 'commesseController');

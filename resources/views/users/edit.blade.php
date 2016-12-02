@@ -83,6 +83,7 @@
             </div>
         </div>
 
+
         <hr>
 
         <div class="panel-group" id="accordion">
@@ -90,18 +91,63 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion"
-                           href="#collapse2">
-                            Caratterische lavorative profilo
+                           href="#collapse5">
+                            Mansioni
                         </a>
                     </h4>
                 </div>
-                <div id="collapse2" class="panel-collapse collapse ">
+                <div id="collapse5" class="panel-collapse collapse ">
                     <div class="panel-body">
-                        @include('users.edit_detail2',  $datiRecuperati)
+                        @include('users.edit_mansioni',  $datiRecuperati)
                     </div>
                 </div>
             </div>
         </div>
+
+
+        <hr>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapse4">
+                            Incarichi di sicurezza
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse ">
+                    <div class="panel-body">
+                        @include('users.edit_incarichi_sicurezza',  $datiRecuperati)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <hr>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapse3">
+                            Albi Professionali
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse ">
+                    <div class="panel-body">
+                        @include('users.edit_albi',  $datiRecuperati)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
 
 

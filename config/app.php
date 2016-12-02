@@ -206,6 +206,8 @@ return [
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
         'GoogleCalendar' => Spatie\GoogleCalendar\GoogleCalendarFacade::class,
+
+        'Helper' => App\Helpers\Helper::class,
     ],
 
 

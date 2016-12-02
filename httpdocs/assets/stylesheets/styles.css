@@ -9121,11 +9121,38 @@ canvas.round {
 
 .bodygg {
     min-height: 400px;
+    margin: 0 15px;
 }
 
 .nav > li > a
 {
     display: inline !important;
+}
+
+.list-group-item
+{
+    padding: 1px 10px !important;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+
+    padding: 2px 9px;
+    vertical-align: middle;
+
+}
+
+.progress {
+    margin-bottom: 0px !important;
+}
+
+.progress-tall {
+    height: 80px !important;
+}
+
+
+
+.progress-bar {
+    color: black !important;
 }
 /*
 To change this license header, choose License Headers in Project Properties.
@@ -14010,7 +14037,8 @@ Copyright (c) 2015 Daniel Eden
 body {
   font-family: "Work Sans", Arial, sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  /*font-size: 16px; ORIGINALE*/
+  font-size: 13px;
   line-height: 1.7;
   color: #7f7f7f;
   background: #f9f6f3;

@@ -14,4 +14,13 @@ class mansioni extends Model
         return $this->belongsTo('App\settori' , 'settore_id');
     }
 
+
+    public function _corsi()
+    {
+        return $this->belongsToMany('App\corsi' , 'mansioni_corsi_map', 'mansione_id', 'corso_id');
+    }
+
+    
+    
+
 }
