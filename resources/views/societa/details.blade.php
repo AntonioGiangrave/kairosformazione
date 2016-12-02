@@ -212,17 +212,9 @@
 
 
 <div class="pull-right">
-    {{ Form::submit('aggiorna', ['class' => 'btn btn-success btn-lg']) }}
+    {{ Form::button('<i class="fa fa-save"></i> Aggiorna', ['class' => 'btn btn-success', 'type'=>'submit', 'type'=>'submit']) }}
 
     {{ Form::close() }}
 
 </div>
 
-<div class="pull-right">
-    {{ Form::open([
-                       'method' => 'DELETE',
-                       'url' => ['societa', $datiRecuperati['id']]
-                       ]) }}
-    {{ Form::submit('Cancella', ['class' => 'btn btn-danger btn-sm']) }}
-    {{ Form::close() }}
-</div>

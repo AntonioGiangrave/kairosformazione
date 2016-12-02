@@ -32,13 +32,6 @@
 
             </div>
 
-
-
-
-
-
-
-
     </div>
 </div>
 <br>
@@ -52,7 +45,7 @@
                 <thead>  <tr>
                     <th></th>
                     <th>Corso</th>
-                    <th align="center">Data cosneguimento</th>
+                    <th align="center">Data conseguimento</th>
                     <th></th>
 
                 </tr>
