@@ -48,6 +48,57 @@ class registro_formazione extends Model
                 $registro_formazione->insertIgnore($registro_formazione->toArray());
             }
         }
+
+// DA OTTIMIZZARE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+
+        $classe_rischio_ateco = $utente->societa->ateco->classe_rischio;
+
+        $classe_rischio_utente = null;
+
+        foreach ($utente->_mansioni as $mansione){
+            if($mansione->classe_rischio == null ){
+                $classe_rischio_utente = null;
+                break;
+            }
+            elseif ($mansione->classe_rischio >= $classe_rischio_utente ) {
+                $classe_rischio_utente = $mansione->classe_rischio;
+            }
+        }
+
+        if($classe_rischio_utente)
+            $classe_rischio_riferimento = $classe_rischio_utente;
+        else
+            $classe_rischio_riferimento = $classe_rischio_ateco;
+
+
+
+//  DA OTTIIZZARE ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        foreach ($utente->_incarichi_sicurezza as $singolo_incarico){
+
+            $registro_formazione = new registro_formazione();
+            $registro_formazione->user_id = $id;
+
+
+            switch($classe_rischio_riferimento){
+                case  1 :
+                    $registro_formazione->corso_id = $singolo_incarico->id_rischio_basso;
+                    break;
+
+                case  2 :
+                    $registro_formazione->corso_id = $singolo_incarico->id_rischio_medio;
+                    break;
+
+                case  3 :
+                    $registro_formazione->corso_id = $singolo_incarico->id_rischio_alto;
+                    break;
+
+            }
+
+            $registro_formazione->insertIgnore($registro_formazione->toArray());
+        }
+
+
     }
 
     public function sync_azienda($id)

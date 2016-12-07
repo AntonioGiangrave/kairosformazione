@@ -24,4 +24,10 @@ class corsi extends Model
         return $this->belongsTo('App\fad' , 'fad');
     }
 
+    public function _sessioni()
+    {
+        return $this->hasMany('App\aule_sessioni' , 'id_corso' );
+    }
+    
+
 }
