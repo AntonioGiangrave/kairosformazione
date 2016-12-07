@@ -27,13 +27,17 @@ Route::group(array('middleware' => 'auth'), function() {
     Route::resource('ateco', 'atecoController');
     Route::resource('registro_formazione', 'registro_formazioneController');
 
+    //    Route::resource('fad', 'registro_formazioneController');
+    //    Route::resource('aule', 'registro_formazioneController');
+    Route::resource('aule_sessioni', 'aule_sessioniController');
 
 
 
-    
+
+
     Route::resource('loadcorsi', 'corsiController@loadCorsi');
-    
-    
+
+
 
 //
 //    Route::resource('commesse', 'commesseController');

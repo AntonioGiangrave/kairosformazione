@@ -34,6 +34,9 @@ elixir(function(mix) {
         'resources/css/owl.theme.default.min.css',
         'resources/css/style.css',
 
+        //DATE PICKER
+        'resources/css/jquery-ui.css',
+
 
 
     ], 'httpdocs/assets/stylesheets/styles.css', './');
@@ -51,6 +54,11 @@ elixir(function(mix) {
         'resources/js/owl.carousel.min.js',
         'resources/js/respond.min.js',
         'resources/js/jquery.easing.1.3.js',
+        'resources/js/listgroup.js',
+        
+        
+        //DATE PICKER
+        'resources/js/jquery-ui.js',
 
 
 

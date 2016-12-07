@@ -8,6 +8,11 @@
 
         {{Form::model($datiRecuperati, ['method' => 'put', 'url' =>'corsi/'. $datiRecuperati['id']]) }}
 
+        {{ Form::hidden('token', csrf_token(), ['type'=>'hidden']) }}
+
+
+
+
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
@@ -39,19 +44,7 @@
         <h4>Modalità di erogazione</h4>
 
         <div class="row">
-            <div class="col-sm-2">
-                <div class="form-group">
-                    {{ Form::label('aula', 'Aula:') }}
-                    {{ Form::checkbox('aula', 1,$datiRecuperati['aula'],  ['class' => 'form-control_']) }}
-                </div>
-            </div>
 
-            <div class="col-sm-2">
-                <div class="form-group">
-                    {{ Form::label('fad', 'Fad:') }}
-                    {{ Form::checkbox('fad', 1, $datiRecuperati['fad'], ['class' => 'form-control_']) }}
-                </div>
-            </div>
 
             <div class="col-sm-2">
                 <div class="form-group">
@@ -69,8 +62,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    {{ Form::label('info_aula', 'Inormazioni aula:') }}
-                    {{ Form::text('info_aula', null, ['class' => 'form-control']) }}
+                    {{ Form::label('aula', 'Informazioni aula:') }}
+                    {{ Form::select('aula', [''=>'Corso non disponibile in aula'] + $aule , $datiRecuperati['aula'], ['class' => 'form-control']) }}
                 </div>
             </div>
         </div>
@@ -78,8 +71,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    {{ Form::label('info_fad', 'Inormazioni fad:') }}
-                    {{ Form::text('info_fad', null, ['class' => 'form-control']) }}
+                    {{ Form::label('fad', 'Informazioni fad:') }}
+                    {{ Form::select('fad', [''=>'Corso non disponibile in fad'] + $fad , $datiRecuperati['fad'], ['class' => 'form-control']) }}
                 </div>
             </div>
         </div>

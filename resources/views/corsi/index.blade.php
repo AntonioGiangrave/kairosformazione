@@ -36,8 +36,8 @@
                     <tr>
                         <td>{{ $single->titolo}}</td>
                         <td>{{ $single->durata }}</td>
-                        <td> @if( $single->aula ) <i class="fa fa-check"></i> @endif </td>
-                        <td> @if( $single->fad ) <i class="fa fa-check"></i> @endif </td>
+                        <td> @if( $single->aula ) <span title="{{ $single->_aula->descrizione ." - ".$single->_aula->indirizzo }}"><i class="fa fa-check"></i></span> @endif </td>
+                        <td> @if( $single->fad ) <span title="{{ $single->_fad->descrizione ." - ".$single->_fad->indirizzo }}"><i class="fa fa-check"></i></span> @endif </td>
                         <td> @if( $single->cfp ) <i class="fa fa-check"></i> @endif </td>
                         <td>{{ $single->validita}}</td>
                         <td>{{ $single->proprietario['ragione_sociale'] }} </td>

@@ -82,6 +82,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsToMany('App\mansioni' , 'mansioni_user_map' ,  'user_id', 'mansione_id' );
     }
 
+//    public function _prenotazioni()
+//    {
+//        return $this->belongsToMany('App\aule_sessioni' , 'aule_prenotazioni' ,  'id_utente' );
+//    }
+
+
     public function _registro_formazione()
     {
         return $this->hasMany('App\registro_formazione');

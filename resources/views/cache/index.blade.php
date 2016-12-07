@@ -59,6 +59,12 @@
 
 						<li><a href="/ateco">Ateco</a></li>
 
+						<li><a href="/aule">Aule</a></li>
+
+						<li><a href="/fad">Fad</a></li>
+
+						<li><a href="/aule_sessioni">Sessioni aula / prenotazioni </a></li>
+
 
 
 
@@ -202,7 +208,7 @@
 </div>
 
 <script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
-
+@yield('script')
 
 
 

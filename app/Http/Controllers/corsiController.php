@@ -16,7 +16,7 @@ class corsiController extends Controller
      */
     public function index()
     {
-        $data['corsi'] = \App\corsi::orderBy('titolo')->with('proprietario')->get();
+        $data['corsi'] = \App\corsi::orderBy('titolo')->with('_proprietario', '_aula')->get();
 
         return view('corsi.index', $data);
     }
@@ -52,12 +52,9 @@ class corsiController extends Controller
         $data = new \App\corsi;
         $data->titolo = $request->input('titolo');
         $data->durata = $request->input('durata');
-
-        $data->aula = $request->input('aula');
-        $data->fad= $request->input('fad');
-        $data->info_aula= $request->input('info_aula');
-        $data->info_fad= $request->input('info_fad');
-        $data->cfp= $request->input('info_cfp');
+        $data->aula = $request->input('aula')?: null;
+        $data->fad= $request->input('fad') ?: null;
+        $data->cfp= $request->input('info_cfp') ;
         $data->validita= $request->input('validita');
         $data->programma= $request->input('programma');
 
@@ -87,8 +84,10 @@ class corsiController extends Controller
      */
     public function edit($id)
     {
-        $data['datiRecuperati'] = \App\corsi::with('proprietario')->find($id);
+        $data['datiRecuperati'] = \App\corsi::with('_proprietario', '_aula')->find($id);
         $data['albi_professionali'] = \App\albi_professionali::lists('nome' , 'id');
+        $data['aule'] = \App\aule::lists('descrizione', 'id')->all();
+        $data['fad'] = \App\fad::lists('descrizione', 'id')->all();
         return view('corsi.edit', $data);
     }
 
@@ -111,11 +110,8 @@ class corsiController extends Controller
         $data = \App\corsi::find($id);
         $data->titolo = $request->input('titolo');
         $data->durata = $request->input('durata');
-
-        $data->aula = $request->input('aula');
-        $data->fad= $request->input('fad');
-        $data->info_aula= $request->input('info_aula');
-        $data->info_fad= $request->input('info_fad');
+        $data->aula = $request->input('aula')?: null;
+        $data->fad= $request->input('fad') ?: null;
         $data->cfp= $request->input('info_cfp');
         $data->validita= $request->input('validita');
         $data->programma= $request->input('programma');
