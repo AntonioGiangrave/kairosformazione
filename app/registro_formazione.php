@@ -72,7 +72,11 @@ class registro_formazione extends Model
 
 
 
-//  DA OTTIIZZARE ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//  DA OTTIMIZZARE ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/*
+
+
+*/
 
         foreach ($utente->_incarichi_sicurezza as $singolo_incarico){
 

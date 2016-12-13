@@ -77,10 +77,6 @@
             </div>
         </div>
 
-
-
-
-
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
@@ -90,11 +86,10 @@
             </div>
         </div>
 
-
-
-
         <hr>
+
         <h4>Competenza Albi</h4>
+
         <div class="row">
             <div class="col-sm-12">
                 <div class='form-group'>
@@ -106,16 +101,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
 
         <div class="pull-right">
             {{ Form::submit('aggiorna', ['class' => 'btn btn-success']) }}
@@ -132,15 +117,20 @@
             {{ Form::submit('Cancella', ['class' => 'btn btn-danger btn-sm']) }}
             {{ Form::close() }}
         </div>
-
-
-
-
     </div>
-
-
 
 @stop
 
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-<script>tinymce.init({ selector:'textarea' });</script>
+<script>tinymce.init({
+        selector:'textarea',
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code'
+        ],
+        toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+        content_css: '//www.tinymce.com/css/codepen.min.css'
+
+    });</script>

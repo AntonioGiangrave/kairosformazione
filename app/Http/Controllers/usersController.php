@@ -31,7 +31,7 @@ class usersController extends Controller {
 
         /******************************************************************
         DA COMPLETARE !!!!!!
-        ******************************************************************/
+         ******************************************************************/
         $data['status'] = array(
             1 => 'Disoccupato' ,
             2 => 'Occupato Senza datore',
@@ -42,24 +42,25 @@ class usersController extends Controller {
         $data['lista_incarichi_sicurezza'] =  \App\incarichi_sicurezza::orderBy('nome')->lists('nome' , 'id');
         $data['lista_mansioni'] =  \App\mansioni::orderBy('nome')->lists('nome' , 'id');
 
+
         return view('users.edit', $data);
     }
 
     public function formazione($id){
 
-
         $registro_formazione = new registro_formazione();
 
         $registro_formazione->sync_utente($id);
-        
-        $data['datiRecuperati'] = User::with('_registro_formazione')->find($id);
+
+        $data['datiRecuperati'] = User::with('_registro_formazione', '_avanzamento_formazione' )->find($id);
 
         $data['totaleFormazione']=$data['datiRecuperati']->_registro_formazione->count();
         $data['avanzamentoFormazione']=$data['datiRecuperati']->_avanzamento_formazione()->count();
         $data['avanzamentoSicurezza']=$data['datiRecuperati']->_get_tot_avanzamento_formazione_sicurezza();
         $data['avanzamentoRuolo']=$data['datiRecuperati']->_get_tot_avanzamento_formazione_ruolo();
-//
+
         return view('users.formazione', $data);
+
     }
 
     public function update(Request $request, $id) {

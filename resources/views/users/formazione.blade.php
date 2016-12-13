@@ -18,13 +18,6 @@
             indica per quali hai già conseguito un attestato e procedi a iscriverti agli altri.
         </span>
 
-
-
-
-
-
-
-
         </div>
         <div class="col-sm-6">
 
@@ -90,23 +83,29 @@
                     <tr>
                         <td @if( $corso->data_superamento )class="success" @endif></td>
                         <td align="center">@if( $corso->_corsi->tipo == 'S' ) <i class="fa fa- fa-shield  fa-2x"> </i> @endif</td>
-                        <td>{{ strtoupper($corso->_corsi->titolo) }}</td>
+                        <td>{{ strtoupper($corso->_corsi->titolo) }}   </td>
                         <td align="center">{{ $corso->data_superamento }}</td>
                         <td>
-                            <a class="btn btn-warning btn-xs" @if($corso->data_superamento)disabled="disabled"@endif
-                            href="usersformazione/{{$corso->corso_id}}"
-                               title="riscatta corso">
-                                <i class="fa fa-bookmark-o"></i></a>
+                            <a class="" href="#{{$corso->corso_id}}" title="Dettaglio corso" onclick="showDetailCorso({{$corso->corso_id}})">
+                                <i class="fa fa-eye fa-2x"></i></a>
 
-                            <a class="btn btn-warning btn-xs" href="#" title="Dettaglio corso" onclick="showDetailCorso({{$corso->corso_id}})">
-                                <i class="fa fa-eye"></i></a>
+
+                            @if(!$corso->data_superamento)
+                                <a class=""
+                                   href="usersformazione/{{$corso->corso_id}}"
+                                   title="riscatta corso">
+                                    <i class="fa fa-bookmark-o fa-2x"></i></a>
+                            @endif
+
+
+
 
                         </td>
                     </tr>
 
 
                     <tr id="corso{{$corso->corso_id}}" class="dettagliocorso hide">
-                        <td colspan="4">
+                        <td colspan="5">
                             <span  class="">
                                 <dl class="dl-horizontal">
                                     <dt>Programma</dt>
