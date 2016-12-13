@@ -15,9 +15,9 @@ class usersController extends Controller {
     public function index() {
 
         $data = User::with('societa')
-            ->with('user_profiles')
             ->where('bloccato', 0)
             ->orderBy('cognome')->get();
+
         return view('users.index', compact('data'));
     }
 
@@ -39,7 +39,7 @@ class usersController extends Controller {
         );
 
         $data['lista_albi'] =   \App\albi_professionali::orderBy('nome')->lists('nome' , 'id');
-        $data['lista_incarichi_sicurezza'] =  \App\incarichi_sicurezza::orderBy('nome')->lists('nome' , 'id');
+        $data['lista_incarichi_sicurezza'] =  \App\incarichi_sicurezza::where('id','>', '2')->orderBy('nome')->lists('nome' , 'id');
         $data['lista_mansioni'] =  \App\mansioni::orderBy('nome')->lists('nome' , 'id');
 
 

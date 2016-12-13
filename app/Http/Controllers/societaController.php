@@ -64,8 +64,8 @@ class societaController extends Controller
     public function edit($id)
     { 
 
-//        $allinea = new registro_formazione();
-//        $allinea->sync_azienda($id);
+        $allinea = new registro_formazione();
+        $allinea->sync_azienda($id);
 
         $data['datiRecuperati'] = \App\societa::with('ateco', '_settori' )->find($id);
         $data['utentiSocieta'] = \App\User::with('_registro_formazione' , '_avanzamento_formazione')->where('societa_id',$id)->orderBy('cognome' , 'asc')->get();

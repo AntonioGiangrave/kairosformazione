@@ -52,7 +52,6 @@ class registro_formazione extends Model
 // DA OTTIMIZZARE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
         $classe_rischio_ateco = $utente->societa->ateco->classe_rischio;
-
         $classe_rischio_utente = null;
 
         foreach ($utente->_mansioni as $mansione){
@@ -73,18 +72,63 @@ class registro_formazione extends Model
 
 
 //  DA OTTIMIZZARE ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-/*
 
 
-*/
 
+        /*
+         *
+         * FORMAZIONE GENERALE
+         *
+         *
+        */
+
+        $formazione_generale = \App\incarichi_sicurezza::find(1);
+        $registro_formazione = new registro_formazione();
+        $registro_formazione->user_id = $id;
+        $registro_formazione->corso_id = $formazione_generale->id_rischio_basso; //unico
+        $registro_formazione->insertIgnore($registro_formazione->toArray());
+
+
+        /*
+         *
+         * FORMAZIONE SPECIFICA
+         *
+         */
+
+
+        $formazione_specifica = \App\incarichi_sicurezza::find(2);
+        $registro_formazione = new registro_formazione();
+        $registro_formazione->user_id = $id;
+
+        switch($classe_rischio_riferimento){
+            case  1 :
+                $registro_formazione->corso_id = $formazione_specifica->id_rischio_basso;
+                break;
+
+            case  2 :
+                $registro_formazione->corso_id = $formazione_specifica->id_rischio_medio;
+                break;
+
+            case  3 :
+                $registro_formazione->corso_id = $formazione_specifica->id_rischio_alto;
+                break;
+
+        }
+        $registro_formazione->insertIgnore($registro_formazione->toArray());
+
+
+        /*
+         *
+         * INCARICHI SICUREZZA
+         *
+         *
+        */
         foreach ($utente->_incarichi_sicurezza as $singolo_incarico){
 
             $registro_formazione = new registro_formazione();
             $registro_formazione->user_id = $id;
 
-
-            switch($classe_rischio_riferimento){
+            switch($classe_rischio_ateco){
                 case  1 :
                     $registro_formazione->corso_id = $singolo_incarico->id_rischio_basso;
                     break;
