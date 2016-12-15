@@ -302,6 +302,7 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-header #fh5co-logo {
   float: left;
   margin-left: -10px;
+  margin-top: -30px;
 }
 #fh5co-header #fh5co-main-nav {
   float: right;

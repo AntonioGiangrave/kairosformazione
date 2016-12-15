@@ -8,6 +8,13 @@ use App\Http\Requests;
 
 class mansioniController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('groups');
+    }
+
     /**
      * Display a listing of the resource.
      *

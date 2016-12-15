@@ -9154,6 +9154,21 @@ canvas.round {
 .progress-bar {
     color: black !important;
 }
+
+
+
+.boxhome {
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    height: 150px;
+    margin: 10px;
+    padding: 15px;
+    position: relative;
+    width: 200px;
+}
+
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -14325,6 +14340,7 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-header #fh5co-logo {
   float: left;
   margin-left: -10px;
+  margin-top: -30px;
 }
 #fh5co-header #fh5co-main-nav {
   float: right;

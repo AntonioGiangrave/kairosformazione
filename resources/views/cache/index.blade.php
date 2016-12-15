@@ -48,61 +48,91 @@
 				<div id="fh5co-logo"><a href="/"><img src="/images/logo.png" alt="Logo Kairos"></a></div>
 				<nav id="fh5co-main-nav" role="navigation">
 					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="/users">Utenti</a></li>
+						@if( Auth::check() )
 
-						<li><a href="/societa">Aziende</a></li>
+							<li><a href="/users">Utenti</a></li>
 
-						<li><a href="/corsi">Corsi</a></li>
+							<li><a href="/societa">Aziende</a></li>
 
-						<li><a href="/mansioni">Mansioni</a></li>
-
-						<li><a href="/ateco">Ateco</a></li>
-
-						<li><a href="/aule">Aule</a></li>
-
-						<li><a href="/fad">Fad</a></li>
-
-						<li><a href="/aule_sessioni">Sessioni aula / prenotazioni </a></li>
+							<li><a href="/corsi">Corsi</a></li>
 
 
+						@else
 
 
-						<!--
-						<li class="has-sub">
-							<div class="drop-down-menu">
-								<a href="#">Strumenti</a>
-								<div class="dropdown-menu-wrap">
-									<ul>
-										<li><a href="/societa">Aziende</a></li>
-									</ul>
-								</div>
-							</div>
-						</li>
+							<li><a href="/login">Accedi</a></li>
 
-						-->
+							<li><a href="/register">Registrati</a></li>
 
-						<ul class="nav navbar-top-links navbar-right">
 
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-									<i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
-								</a>
+						@endif
 
-								@if( Auth::check() )
 
+						@if( Auth::user()->hasAnyGroups('admin') )
+
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+										<i class="fa fa-cogs fa-fw"></i> Risorse <i class="fa fa-caret-down"></i>
+									</a>
 									<ul class="dropdown-menu dropdown-user">
-										<li><a href="users/{{ Auth::user()->id }}/edit"><i class="fa fa-user fa-fw"></i> User Profile</a>
-										</li>
 
-										<li class="divider"></li>
-										<li><a href="{{ url ('logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout </a></li>
+										<li><a href="/mansioni">Mansioni</a></li>
+										<br>
+
+										<li><a href="/ateco">Ateco</a></li>
+										<br>
+
+										<li><a href="/aule">Aule</a></li>
+										<br>
+
+										<li><a href="/fad">Fad</a></li>
+										<br>
+
+										<li><a href="/aule_sessioni">Sessioni aula / prenotazioni </a></li>
+										<br>
+
 									</ul>
+								</li>
+
+							@endif
+
+									<!--
+            <li class="has-sub">
+                <div class="drop-down-menu">
+                    <a href="#">Strumenti</a>
+                    <div class="dropdown-menu-wrap">
+                        <ul>
+                            <li><a href="/societa">Aziende</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            -->
+
+							<ul class="nav navbar-top-links navbar-right">
+								@if( Auth::check() )
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+											<i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
+										</a>
+
+
+
+										<ul class="dropdown-menu dropdown-user">
+											<li><a href="users/{{ Auth::user()->id }}/edit"><i class="fa fa-user fa-fw"></i> User Profile</a>
+											</li>
+
+											<li class="divider"></li>
+											<li><a href="{{ url ('logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout </a></li>
+										</ul>
+
+										<!-- /.dropdown-user -->
+									</li>
+
 									@endif
-											<!-- /.dropdown-user -->
-							</li>
-							<!-- /.dropdown -->
-						</ul>
+											<!-- /.dropdown -->
+							</ul>
 
 
 					</ul>

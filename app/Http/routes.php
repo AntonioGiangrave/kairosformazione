@@ -11,12 +11,28 @@
   |
  */
 
+
+
+Route::get('/', function() {
+    return View::make('cache.home');
+});
+
+//Route::get('/home', function() {
+//    return View::make('cache.home');
+//});
+
+
+
+
+
+
 Route::group(array('middleware' => 'auth'), function() {
 
-    Route::get('/', function() {
 
-        return View::make('cache.home');
+    Route::get('/home', function() {
+        return View::make('cache.home_loggato');
     });
+
 
     Route::resource('users', 'usersController');
     Route::resource('usersformazione', 'usersController@formazione');
@@ -30,6 +46,8 @@ Route::group(array('middleware' => 'auth'), function() {
     //    Route::resource('fad', 'registro_formazioneController');
     //    Route::resource('aule', 'registro_formazioneController');
     Route::resource('aule_sessioni', 'aule_sessioniController');
+
+
 
 
 
@@ -63,10 +81,6 @@ Route::group(array('middleware' => 'auth'), function() {
 
     //AUTOCOMPLETE 
     Route::get('autocomplete/commesse', 'ajaxRequestController@Commesse');
-
-
-
-
 
 
 //    Route::get('autocomplete', function() {
