@@ -67,8 +67,8 @@
 
 						@endif
 
-
-						@if( Auth::user()->hasAnyGroups('admin') )
+						@if( Auth::user())
+							@if( Auth::user()->hasAnyGroups('admin') )
 
 								<li class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -94,9 +94,10 @@
 									</ul>
 								</li>
 
-							@endif
+								@endif
+								@endif
 
-									<!--
+										<!--
             <li class="has-sub">
                 <div class="drop-down-menu">
                     <a href="#">Strumenti</a>
@@ -110,29 +111,29 @@
 
             -->
 
-							<ul class="nav navbar-top-links navbar-right">
-								@if( Auth::check() )
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-											<i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
-										</a>
+								<ul class="nav navbar-top-links navbar-right">
+									@if( Auth::check() )
+										<li class="dropdown">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+												<i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
+											</a>
 
 
 
-										<ul class="dropdown-menu dropdown-user">
-											<li><a href="users/{{ Auth::user()->id }}/edit"><i class="fa fa-user fa-fw"></i> User Profile</a>
-											</li>
+											<ul class="dropdown-menu dropdown-user">
+												<li><a href="users/{{ Auth::user()->id }}/edit"><i class="fa fa-user fa-fw"></i> User Profile</a>
+												</li>
 
-											<li class="divider"></li>
-											<li><a href="{{ url ('logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout </a></li>
-										</ul>
+												<li class="divider"></li>
+												<li><a href="{{ url ('logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout </a></li>
+											</ul>
 
-										<!-- /.dropdown-user -->
-									</li>
+											<!-- /.dropdown-user -->
+										</li>
 
-									@endif
-											<!-- /.dropdown -->
-							</ul>
+										@endif
+												<!-- /.dropdown -->
+								</ul>
 
 
 					</ul>

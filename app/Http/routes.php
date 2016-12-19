@@ -21,8 +21,19 @@ Route::get('/', function() {
 //    return View::make('cache.home');
 //});
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+Route::get('/test', function() {
 
 
+
+//    $cur = Auth::user();
+//    $cur->givePermissionTo('superUser');
+
+    $users = \App\User::all()->take(10);
+
+    return View::make('cache.test')->with('users' , $users);
+});
 
 
 

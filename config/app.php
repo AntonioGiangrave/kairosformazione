@@ -151,6 +151,8 @@ return [
         'Barryvdh\Debugbar\ServiceProvider',
 
         Spatie\GoogleCalendar\GoogleCalendarServiceProvider::class,
+
+        Spatie\Permission\PermissionServiceProvider::class,
         
     ],
     /*

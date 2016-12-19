@@ -8,14 +8,14 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
     use Authenticatable,
         CanResetPassword;
 
-
+    use HasRoles;
 //    public function __construct(array $attributes = array())
 //    {
 //        parent::__construct($attributes);
